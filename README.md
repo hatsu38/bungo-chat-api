@@ -1,24 +1,35 @@
-# README
+### デプロイ方法
+```
+# herokuにログイン
+$ heroku login
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# herokuのコンテナレジストリにログイン
+heroku container:login
 
-Things you may want to cover:
+# イメージを作成してコンテナレジストリにpush
+heroku container:push web
 
-* Ruby version
+# DBセットアップ(必要に応じて)
+heroku run rails db:migrate
 
-* System dependencies
+# イメージをherokuへデプロイ
+heroku container:release web
+```
 
-* Configuration
+#### その他Herokuでよく使うコマンド
+```
+# 実際にアクセス
+heroku open
 
-* Database creation
+# サーバーに入る
+heroku run bash
 
-* Database initialization
+# RAILS_ENVをProduction環境に変更する
+heroku config:add RAILS_ENV=production
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# herokuに.envを送信する
+# プラグイン追加
+heroku plugins:install heroku-config
+# .envを送信
+heroku config:push
+```
