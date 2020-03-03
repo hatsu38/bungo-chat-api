@@ -1,0 +1,11 @@
+spec/
+tmp/
+!tmp/pids/
+node_modules/
+vendor/bundle/
+
+.envrc
+# intelliJ
+.idea/
+*.iml
+railways.cache

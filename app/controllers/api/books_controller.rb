@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Api::BooksController < ApplicationController
-  require 'natto'
   require 'zip'
   require 'csv'
   require 'open-uri'
@@ -15,15 +14,11 @@ class Api::BooksController < ApplicationController
     @book = Book.find_by(title: params[:title])
     return @words = nil if @book.nil?
 
+    page = params[:page].to_i
     txt_path = "db/txt/#{@book.txt_file}"
     download_txt(@book.zip_url, txt_path) unless File.exist?(txt_path)
     File.open(txt_path, 'r') do |f|
-      sentence = f.read
-      natto = Natto::MeCab.new
-      page = params[:page].to_i
-      pre_sentence = 800 * (page - 1)
-      sentence.slice!(0..pre_sentence - 1) if pre_sentence.positive?
-      @words = natto.enum_parse(sentence.truncate(800, omission: ''))
+      @words = f.read.split(/(?<=。)/)[page..(page+5)]
     end
   rescue StandardError => e
     logger.warn(e.inspect)
