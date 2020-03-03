@@ -23,6 +23,7 @@ AllCops:
     - 'spec/*_helper.rb'
     - ',/**/*'
     - 'node_modules/**/*'
+    - 'app/admin/**'
   TargetRubyVersion: 2.5
 
 Rails:
@@ -35,13 +36,13 @@ Metrics/ClassLength:
   Max: 200
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 22
 
 Metrics/CyclomaticComplexity:
   Max: 5
 
 Metrics/LineLength:
-  Max: 120
+  Max: 135
 
 Metrics/MethodLength:
   Max: 80
