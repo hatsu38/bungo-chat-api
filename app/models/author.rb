@@ -16,10 +16,10 @@ class Author < ApplicationRecord
   end
 
   def take_books(num)
-    books.viewable.includes(:rakuten_book_info, :ranking)
-      .select(:id, :title, :impressions_count)
-      .order('rankings.rank is null, rankings.rank asc')
-      .order(impressions_count: :desc)
-      .order('rakuten_book_infos.medium_image_url desc').take(num)
+    books.viewable.includes(:rakuten_book_info, :ranking).
+      select(:id, :title, :impressions_count).
+      order('rankings.rank is null, rankings.rank asc').
+      order(impressions_count: :desc).
+      order('rakuten_book_infos.medium_image_url desc').take(num)
   end
 end
