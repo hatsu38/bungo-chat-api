@@ -62,5 +62,5 @@ jobs:
       - run:
           name: run brakeman
           command: |
-            bundle exec brakeman -A
+            bundle exec brakeman -w3
 
