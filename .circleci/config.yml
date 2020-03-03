@@ -9,7 +9,7 @@ jobs:
       - image: circleci/ruby:2.6.5-buster
         environment:
           RAILS_ENV: test
-          POSTGRES_DB: cafepedia_api_test
+          POSTGRES_DB: bungo_chat_test
           DATABASE_USER: postgres
           DATABASE_PASSWORD: ""
           DATABASE_HOST: 127.0.0.1
