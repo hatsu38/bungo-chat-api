@@ -1,0 +1,125 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  # Include gemspec and Rakefile
+  Include:
+    - 'app/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'lib/**/*.rb'
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'app/views/**/*'
+    - 'front/**/*'
+    - 'vendor/**/*'
+    - 'Guardfile'
+    - 'tmp/**/*'
+    - 'log/**/*'
+    - 'coverage/**/*'
+    - 'spec/*_helper.rb'
+    - ',/**/*'
+    - 'node_modules/**/*'
+  TargetRubyVersion: 2.5
+
+Rails:
+  Enabled: true
+
+AsciiComments:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 5
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 80
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'app/admin/**'
+
+Style/AsciiComments:
+  Enabled: false
+
+# Respect RubyMine formatter
+Layout/CaseIndentation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Name reduce block params |a, e|.
+Style/SingleLineBlockParams:
+  Enabled: false
+
+# Respect RubyMine formatter
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+# Cannot deal with AR#eager_load
+Style/SymbolProc:
+  Enabled: false
+
+# Final newline missing.
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+# 式展開しないときにはsingleを使う
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+TrivialAccessors:
+  Enabled: true
+  ExactNameMatch: true
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/ArrayAlignment:
+  Enabled: false
+
+# Do not prefix writer method names with set_
+Naming/AccessorMethodName:
+  Enabled: false
+
+
