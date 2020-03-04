@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module API
+module Api
   class AuthorsController < ApplicationController
     PER = 10
     def index
@@ -9,13 +9,13 @@ module API
 
     def show
       @author = Author.find_by(name: params[:name])
-      @books =  if @author
-                  @author.books.
-                    includes(:author, :rakuten_book_info, :ranking).
-                    order(Arel.sql('rankings.rank is null, rankings.rank asc')).
-                    order('rakuten_book_infos.medium_image_url desc').
-                    page(params[:page]).per(PER)
-                end
+      return unless @author
+
+      @books = @author.books.
+               includes(:author, :rakuten_book_info, :ranking).
+               order(Arel.sql('rankings.rank is null, rankings.rank asc')).
+               order('rakuten_book_infos.medium_image_url desc').
+               page(params[:page]).per(PER)
     end
   end
 end

@@ -3,7 +3,7 @@ tmp/
 !tmp/pids/
 node_modules/
 vendor/bundle/
-
+db/txt/
 .envrc
 # intelliJ
 .idea/

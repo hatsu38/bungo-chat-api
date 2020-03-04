@@ -24,6 +24,9 @@ heroku open
 # サーバーに入る
 heroku run bash
 
+# 再起動する
+heroku restart
+
 # RAILS_ENVをProduction環境に変更する
 heroku config:add RAILS_ENV=production
 
@@ -33,3 +36,5 @@ heroku plugins:install heroku-config
 # .envを送信
 heroku config:push
 ```
+
+
