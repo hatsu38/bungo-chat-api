@@ -16,14 +16,12 @@ module Api
       return @sentences = nil if @book.nil?
 
       page = (params[:page] || 1).to_i
-      amount =(params[:amount] || 3).to_i
+      amount = (params[:amount] || 3).to_i
       txt_path = "db/txt/#{@book.txt_file}"
       download_txt(@book.zip_url, txt_path) unless File.exist?(txt_path)
       File.open(txt_path, 'r') do |f|
-        @sentences = f.read.split(/(?<=。)/)[page..(page+amount)]
+        @sentences = f.read.split(/(?<=。)/)[page..(page + amount)]
       end
-    rescue StandardError => e
-      logger.warn(e.inspect)
     end
 
     def search
