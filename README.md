@@ -1,3 +1,15 @@
+## 青空文庫の書籍を返すAPI
+
+フロントエンド：https://github.com/hatsu38/bungo-chat-frontend/
+
+サーバー：https://bungo-chat-api.herokuapp.com/
+
+## API
+- 本一覧：
+https://bungo-chat-api.herokuapp.com/api/books
+- 著者一覧：https://bungo-chat-api.herokuapp.com/api/authors
+- 本のランキング：https://bungo-chat-api.herokuapp.com/api/ranking
+- 本の詳細(文章を返す)：https://bungo-chat-api.herokuapp.com/api/books/%E6%88%96%E9%98%BF%E5%91%86%E3%81%AE%E4%B8%80%E7%94%9F?page=${page_num}&amount=${amount_num}
 ### デプロイ方法
 ```
 # herokuにログイン
